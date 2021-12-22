@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".ui.activities.IntroActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.activities.ContainerActivity"
             android:exported="false" />
         <activity
