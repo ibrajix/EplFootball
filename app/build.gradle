@@ -60,6 +60,8 @@ dependencies {
     def truth_version = "2.4.0"
     def lottie_version = "4.2.2"
     def log_interceptor_version = "4.9.0"
+    def util_version = "1.31.0"
+    def date_store_version = "1.0.0"
 
 
     //core
@@ -115,6 +117,9 @@ dependencies {
     kapt "androidx.room:room-compiler:$room_version"
 
     //utility library
-    implementation 'com.blankj:utilcodex:1.31.0'
+    implementation "com.blankj:utilcodex:$util_version"
+
+    //data store
+    implementation "androidx.datastore:datastore-preferences:$date_store_version"
 
 }
