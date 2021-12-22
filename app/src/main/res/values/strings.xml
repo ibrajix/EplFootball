@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">EplFootball</string>
+    <string name="image">Image</string>
+    <string name="english_premier_league">English Premier League</string>
+    <string name="explore_epl_teams">Explore every epl team and their players with this app</string>
+    <string name="enter">Enter</string>
 </resources>

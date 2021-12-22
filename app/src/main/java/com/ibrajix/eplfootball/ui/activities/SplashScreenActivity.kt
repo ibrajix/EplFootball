@@ -1,6 +1,7 @@
 package com.ibrajix.eplfootball.ui.activities
 
 import android.annotation.SuppressLint
+import android.app.ActivityOptions
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -60,7 +61,7 @@ class SplashScreenActivity : AppCompatActivity() {
         //observe live data --> if user has seen intro
         datStorageViewModel.hasSeenIntro.observe(this){
             //if user has seen intro (go to container activity), if not, go to (into activity)_....
-            activityIntent = if (!it){
+            activityIntent = if (it){
                 Intent(this, ContainerActivity::class.java)
             } else Intent(this, IntroActivity::class.java)
         }
