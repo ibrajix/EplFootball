@@ -1,0 +1,120 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-android-extensions'
+}
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        applicationId "com.ibrajix.eplfootball"
+        minSdk 21
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    def kotlin_x = "1.7.0"
+    def app_compat = "1.4.0"
+    def material = "1.4.0"
+    def constraint_layout = "2.1.2"
+    def junit = "4.13.2"
+    def junit_android = "1.1.3"
+    def espresso_android = "3.4.0"
+    def hilt_android_version = "2.39.1"
+    def nav_version = "2.3.5"
+    def mockito_version = "3.9.0"
+    def coil_version = "1.4.0"
+    def coroutines_version = "1.5.2"
+    def retrofit_version = "2.9.0"
+    def fragment_version = "1.4.0"
+    def lifecycle_version = "2.4.0"
+    def truth_version = "2.4.0"
+    def lottie_version = "4.2.2"
+    def log_interceptor_version = "4.9.0"
+
+
+    //core
+    implementation "androidx.core:core-ktx:$kotlin_x"
+    implementation "androidx.appcompat:appcompat:$app_compat"
+    implementation "com.google.android.material:material:$material"
+    implementation "androidx.constraintlayout:constraintlayout:$constraint_layout"
+
+    //unit test
+    testImplementation "junit:junit:$junit"
+    testImplementation "android.arch.core:core-testing:1.1.1"
+
+    //integration test
+    androidTestImplementation "androidx.test.ext:junit:$junit_android"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_android"
+    androidTestImplementation "com.google.truth:truth:$truth_version"
+    androidTestImplementation "com.google.dagger:hilt-android-testing:$hilt_android_version"
+    kaptAndroidTest "com.google.dagger:hilt-android-compiler:$hilt_android_version"
+    androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
+    androidTestImplementation 'androidx.test:rules:1.4.0'
+    androidTestImplementation "org.mockito:mockito-android:$mockito_version"
+    debugImplementation "androidx.fragment:fragment-testing:$fragment_version"
+
+    //lottie
+    implementation 'com.airbnb.android:lottie:4.2.2'
+
+    //navigation component
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    //retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$log_interceptor_version"
+
+    //hilt - dependency injection
+    implementation "com.google.dagger:hilt-android:$hilt_android_version"
+    kapt "com.google.dagger:hilt-compiler:$hilt_android_version"
+
+    //coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
+
+    //lifeCycle
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+
+    //coil
+    implementation "io.coil-kt:coil:$coil_version"
+    implementation("io.coil-kt:coil-svg:$coil_version")
+
+    //room
+    def room_version = "2.3.0"
+    implementation "androidx.room:room-ktx:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+
+    //utility library
+    implementation 'com.blankj:utilcodex:1.31.0'
+
+}
