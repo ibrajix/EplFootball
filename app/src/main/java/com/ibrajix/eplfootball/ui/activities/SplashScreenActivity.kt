@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import androidx.activity.viewModels
 import com.blankj.utilcode.util.BarUtils
 import com.blankj.utilcode.util.ScreenUtils
@@ -60,6 +61,9 @@ class SplashScreenActivity : AppCompatActivity() {
 
         //observe live data --> if user has seen intro
         datStorageViewModel.hasSeenIntro.observe(this){
+
+            Log.e("vex", it.toString())
+
             //if user has seen intro (go to container activity), if not, go to (into activity)_....
             activityIntent = if (it){
                 Intent(this, ContainerActivity::class.java)

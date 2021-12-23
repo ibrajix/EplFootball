@@ -34,7 +34,7 @@ class DataStorageUse @Inject constructor(@ApplicationContext context: Context) :
 
     override suspend fun setHasSeenIntro(value: Boolean) {
         dataStore.edit {
-            it[PreferenceKeys.HAS_SEEN_INTRO]
+            it[PreferenceKeys.HAS_SEEN_INTRO] = value
         }
     }
 

@@ -13,7 +13,7 @@ import javax.inject.Inject
 class DataStorageViewModel @Inject constructor(private val dataStorage: DataStorage): ViewModel() {
 
     //extension function for converting flow to livedata
-    val hasSeenIntro = dataStorage.hasUserSeenIntro().asLiveData()
+    var hasSeenIntro = dataStorage.hasUserSeenIntro().asLiveData()
 
     //function for updating the boolean value if user has seen intro
     fun setHasSeenIntro(value: Boolean){
