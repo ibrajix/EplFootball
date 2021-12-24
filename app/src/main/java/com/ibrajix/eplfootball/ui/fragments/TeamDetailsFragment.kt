@@ -59,6 +59,20 @@ class TeamDetailsFragment : Fragment() {
 
         binding.txtClubName.text = args.details.name
 
+        binding.txtClubLocation.text = args.details.address
+
+        binding.txtFounded.text = args.details.founded.toString()
+
+        binding.txtShortName.text = args.details.tla
+
+        binding.txtPhoneNumber.text = args.details.phone
+
+        binding.txtWebsite.text = args.details.website
+
+        binding.txtEmail.text = args.details.email
+
+        binding.txtStadium.text = args.details.venue
+
     }
 
     private fun handleClicks(){

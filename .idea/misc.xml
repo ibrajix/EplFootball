@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable-v24/lyt_rounded_2.xml" value="0.24635416666666668" />
         <entry key="app/src/main/res/drawable/btn_background.xml" value="0.2604166666666667" />
         <entry key="app/src/main/res/drawable/lyt_rounded.xml" value="0.24722222222222223" />
+        <entry key="app/src/main/res/drawable/lyt_rounded_2.xml" value="0.24635416666666668" />
         <entry key="app/src/main/res/layout/activity_container.xml" value="0.16145833333333334" />
         <entry key="app/src/main/res/layout/activity_intro.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.21794871794871795" />

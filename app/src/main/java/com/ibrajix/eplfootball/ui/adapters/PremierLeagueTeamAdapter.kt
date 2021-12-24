@@ -24,8 +24,12 @@ class PremierLeagueTeamAdapter (private val onClickListener: OnTeamItemClickList
 
         fun bind(item: Team?){
             if (item != null) {
-                binding.imgClub.apply {
+
+                binding.root.apply {
                     transitionName = item.crestUrl
+                }
+
+                binding.imgClub.apply {
                     loadSvg(item.crestUrl)
                 }
 
@@ -52,15 +56,15 @@ class PremierLeagueTeamAdapter (private val onClickListener: OnTeamItemClickList
         if (item != null) {
             holder.bind(item)
         }
-        holder.itemView.img_club.setOnClickListener {
+        holder.itemView.setOnClickListener {
             if (item != null) {
-                onClickListener.onClickTeam(item, it as ImageView)
+                onClickListener.onClickTeam(item, it as ConstraintLayout)
             }
         }
     }
 
-    class OnTeamItemClickListener(val clickListener: (team: Team, view: ImageView) -> Unit){
-        fun onClickTeam(team: Team, view: ImageView) = clickListener(team, view)
+    class OnTeamItemClickListener(val clickListener: (team: Team, view: ConstraintLayout) -> Unit){
+        fun onClickTeam(team: Team, view: ConstraintLayout) = clickListener(team, view)
     }
 
     class  PremierLeagueDiffCallback : DiffUtil.ItemCallback<Team>() {
