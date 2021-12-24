@@ -1,5 +1,7 @@
 package com.ibrajix.eplfootball.data.response.teams
 
+import java.io.Serializable
+
 data class Team(
     val address: String,
     val clubColors: String,
@@ -14,4 +16,4 @@ data class Team(
     val tla: String,
     val venue: String,
     val website: String
-)
+) : Serializable

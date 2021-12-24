@@ -9,5 +9,18 @@
         android:id="@+id/clubsFragment"
         android:name="com.ibrajix.eplfootball.ui.fragments.TeamsFragment"
         android:label="fragment_clubs"
-        tools:layout="@layout/fragment_teams" />
+        tools:layout="@layout/fragment_teams" >
+        <action
+            android:id="@+id/action_clubsFragment_to_teamDetailsFragment"
+            app:destination="@id/teamDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/teamDetailsFragment"
+        android:name="com.ibrajix.eplfootball.ui.fragments.TeamDetailsFragment"
+        android:label="fragment_team_details"
+        tools:layout="@layout/fragment_team_details" >
+        <argument
+            android:name="details"
+            app:argType="com.ibrajix.eplfootball.data.response.teams.Team" />
+    </fragment>
 </navigation>

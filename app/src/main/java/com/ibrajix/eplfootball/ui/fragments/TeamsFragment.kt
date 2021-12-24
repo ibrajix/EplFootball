@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.blankj.utilcode.util.NetworkUtils
 import com.blankj.utilcode.util.SnackbarUtils
@@ -19,6 +20,7 @@ import com.ibrajix.eplfootball.databinding.FragmentTeamsBinding
 import com.ibrajix.eplfootball.network.Resource
 import com.ibrajix.eplfootball.ui.adapters.PremierLeagueTeamAdapter
 import com.ibrajix.eplfootball.ui.viewmodel.PremierLeagueTeamViewModel
+import com.ibrajix.eplfootball.utils.Utility
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -78,7 +80,8 @@ class TeamsFragment : Fragment() {
 
         premierLeagueTeamAdapter = PremierLeagueTeamAdapter(onClickListener = PremierLeagueTeamAdapter.OnTeamItemClickListener{
             //when a team is clicked, go to details fragment
-            Toast.makeText(requireContext(), "HALLALA", Toast.LENGTH_LONG).show()
+            val action = TeamsFragmentDirections.actionClubsFragmentToTeamDetailsFragment(it)
+            findNavController().navigate(action)
         })
 
         //set recycler view to adapter
@@ -96,11 +99,7 @@ class TeamsFragment : Fragment() {
             getPremierLeagueTeams()
         }
         else{
-            SnackbarUtils
-                .with(binding.root)
-                .setBgColor(ContextCompat.getColor(requireContext(), R.color.colorPrimary))
-                .setMessage(getString(R.string.not_connected))
-                .setMessageColor(ContextCompat.getColor(requireContext(), R.color.white))
+            Utility.displaySnackBar(binding.root, getString(R.string.not_connected), requireContext())
         }
     }
 
@@ -141,14 +140,12 @@ class TeamsFragment : Fragment() {
     }
 
     private fun showError(error: String){
+
         //stop loading, show recycler view and show error
         binding.loadingCompetitions.visibility = View.GONE
         binding.rcvPremiership.visibility = View.VISIBLE
-        SnackbarUtils
-            .with(binding.root)
-            .setBgColor(ContextCompat.getColor(requireContext(), R.color.colorPrimary))
-            .setMessage(error)
-            .setMessageColor(ContextCompat.getColor(requireContext(), R.color.white))
+        Utility.displaySnackBar(binding.root, error, requireContext())
+
     }
 
 }
