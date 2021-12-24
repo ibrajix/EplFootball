@@ -6,4 +6,7 @@
     <string name="enter">Enter</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="premiership">Premier League Teams</string>
+    <string name="not_connected">Not connected to the internet, try again by refreshing</string>
+    <string name="error_message">Something went wrong, try again</string>
 </resources>

@@ -8,6 +8,8 @@
         <entry key="app/src/main/res/layout/activity_intro.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.21794871794871795" />
         <entry key="app/src/main/res/layout/fragment_clubs.xml" value="0.24583333333333332" />
+        <entry key="app/src/main/res/layout/rcv_lyt_premeir_league.xml" value="0.2609375" />
+        <entry key="app/src/main/res/layout/rcv_lyt_premier_league_teams.xml" value="0.24444444444444444" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.225" />
       </map>
     </option>

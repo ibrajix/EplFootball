@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/clubsFragment"
-        android:name="com.ibrajix.eplfootball.ui.fragments.ClubsFragment"
+        android:name="com.ibrajix.eplfootball.ui.fragments.TeamsFragment"
         android:label="fragment_clubs"
-        tools:layout="@layout/fragment_clubs" />
+        tools:layout="@layout/fragment_teams" />
 </navigation>
