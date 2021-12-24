@@ -1,13 +1,18 @@
 package com.ibrajix.eplfootball.ui.adapters
 
+import android.media.Image
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.ibrajix.eplfootball.data.response.teams.Team
 import com.ibrajix.eplfootball.databinding.RcvLytPremierLeagueTeamsBinding
 import com.ibrajix.eplfootball.utils.loadSvg
+import kotlinx.android.synthetic.main.rcv_lyt_premier_league_teams.view.*
 
 
 class PremierLeagueTeamAdapter (private val onClickListener: OnTeamItemClickListener) : ListAdapter<Team, PremierLeagueTeamAdapter.PremierLeagueViewHolder>(
@@ -16,11 +21,18 @@ class PremierLeagueTeamAdapter (private val onClickListener: OnTeamItemClickList
 
 
     class PremierLeagueViewHolder private constructor(private val binding: RcvLytPremierLeagueTeamsBinding) : RecyclerView.ViewHolder(binding.root){
+
         fun bind(item: Team?){
             if (item != null) {
-                binding.imgClub.loadSvg(item.crestUrl)
+                binding.imgClub.apply {
+                    transitionName = item.crestUrl
+                    loadSvg(item.crestUrl)
+                }
+
+                binding.txtClubName.text = item.name
             }
         }
+
         companion object{
             fun from(parent: ViewGroup) : PremierLeagueViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
@@ -28,7 +40,6 @@ class PremierLeagueTeamAdapter (private val onClickListener: OnTeamItemClickList
                 return PremierLeagueViewHolder(binding)
             }
         }
-
 
     }
 
@@ -41,17 +52,16 @@ class PremierLeagueTeamAdapter (private val onClickListener: OnTeamItemClickList
         if (item != null) {
             holder.bind(item)
         }
-        holder.itemView.setOnClickListener {
+        holder.itemView.img_club.setOnClickListener {
             if (item != null) {
-                onClickListener.onClickTeam(item)
+                onClickListener.onClickTeam(item, it as ImageView)
             }
         }
     }
 
-    class OnTeamItemClickListener(val clickListener: (team: Team) -> Unit){
-        fun onClickTeam(team: Team) = clickListener(team)
+    class OnTeamItemClickListener(val clickListener: (team: Team, view: ImageView) -> Unit){
+        fun onClickTeam(team: Team, view: ImageView) = clickListener(team, view)
     }
-
 
     class  PremierLeagueDiffCallback : DiffUtil.ItemCallback<Team>() {
 
@@ -64,6 +74,5 @@ class PremierLeagueTeamAdapter (private val onClickListener: OnTeamItemClickList
         }
 
     }
-
 
 }

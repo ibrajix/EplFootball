@@ -6,11 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.FragmentNavigator
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.blankj.utilcode.util.NetworkUtils
@@ -22,6 +25,7 @@ import com.ibrajix.eplfootball.ui.adapters.PremierLeagueTeamAdapter
 import com.ibrajix.eplfootball.ui.viewmodel.PremierLeagueTeamViewModel
 import com.ibrajix.eplfootball.utils.Utility
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.activity_intro.*
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
@@ -61,6 +65,7 @@ class TeamsFragment : Fragment() {
         setUpSwipeToRefresh()
         setUpAdapter()
         startCollectingValues()
+
     }
 
 
@@ -78,16 +83,24 @@ class TeamsFragment : Fragment() {
 
     private fun setUpAdapter(){
 
-        premierLeagueTeamAdapter = PremierLeagueTeamAdapter(onClickListener = PremierLeagueTeamAdapter.OnTeamItemClickListener{
-            //when a team is clicked, go to details fragment
+        premierLeagueTeamAdapter = PremierLeagueTeamAdapter(onClickListener = PremierLeagueTeamAdapter.OnTeamItemClickListener{it, view ->
+            val extras = FragmentNavigatorExtras(view to it.crestUrl)
             val action = TeamsFragmentDirections.actionClubsFragmentToTeamDetailsFragment(it)
-            findNavController().navigate(action)
+            findNavController().navigate(action, extras)
         })
 
         //set recycler view to adapter
         binding.rcvPremiership.apply {
             adapter = premierLeagueTeamAdapter
             layoutManager = GridLayoutManager(context, 3)
+
+            //return transition
+            postponeEnterTransition()
+            viewTreeObserver
+                .addOnPreDrawListener {
+                    startPostponedEnterTransition()
+                    true
+                }
         }
 
     }
