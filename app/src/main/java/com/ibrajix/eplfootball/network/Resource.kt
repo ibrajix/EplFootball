@@ -1,3 +1,8 @@
+/*
+ * Written and Developed by Inuwa Ibrahim - https://linktr.ee/Ibrajix
+ * All rights reserved
+ */
+
 package com.ibrajix.eplfootball.network
 
 data class Resource<out T>(val status: Status, val data: T?, val message: String?) {

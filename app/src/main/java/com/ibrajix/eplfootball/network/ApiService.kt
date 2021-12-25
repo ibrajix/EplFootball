@@ -1,3 +1,8 @@
+/*
+ * Written and Developed by Inuwa Ibrahim - https://linktr.ee/Ibrajix
+ * All rights reserved
+ */
+
 package com.ibrajix.eplfootball.network
 
 import com.ibrajix.eplfootball.BuildConfig

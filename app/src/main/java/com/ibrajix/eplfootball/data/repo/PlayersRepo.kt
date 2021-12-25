@@ -1,3 +1,8 @@
+/*
+ * Written and Developed by Inuwa Ibrahim - https://linktr.ee/Ibrajix
+ * All rights reserved
+ */
+
 package com.ibrajix.eplfootball.data.repo
 
 import com.ibrajix.eplfootball.data.response.players.PlayersResponse
@@ -12,7 +17,7 @@ import javax.inject.Inject
 
 class PlayersRepo @Inject constructor(private val apiDataSource: ApiDataSource) : BaseDataSource() {
 
-    //get premiership clubs
+    //get team players
     suspend fun getPremierLeagueTeamPlayers(id: String) : Flow<Resource<PlayersResponse>> {
         return flow {
             val result = safeApiCall { apiDataSource.getPremierLeagueTeamPlayers(id) }
