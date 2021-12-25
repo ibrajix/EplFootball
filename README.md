@@ -23,6 +23,7 @@
 - Databinding and ViewBinding (Used both)
 - Recyclerview Adapter with DiffUtil and ListAdapter implementation
 - Datastore 
+- Animation using Lottie
 - Hilt 
 - Retrofit
 - Loading SVG Images using Coil Image Loading Library
