@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  This application shows every EPL team and their players. Built using modern android development tech stack with comments describing what each functions does for clarity
+  This application shows every EPL team and their players. Built using modern android development tech stack and an easy to understand codebase and structure
 </p>
 
 <p align="center">
