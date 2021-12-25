@@ -29,10 +29,11 @@ class SplashScreenActivity : AppCompatActivity() {
     //initialize binding variable
     private lateinit var binding: ActivitySplashScreenBinding
 
+    //initialize intent
+    private var activityIntent: Intent? = null
+
     //initialize storage viewModel
     private val datStorageViewModel: DataStorageViewModel by viewModels()
-
-    private var hasSeenIntro: Boolean? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,15 +66,19 @@ class SplashScreenActivity : AppCompatActivity() {
 
         //observe live data --> if user has seen intro
         datStorageViewModel.hasSeenIntro.observe(this){
-            hasSeenIntro = it
+
+            Log.e("vex", it.toString())
+
+            //if user has seen intro (go to container activity), if not, go to (into activity)_....
+            activityIntent = if (it){
+                Intent(this, ContainerActivity::class.java)
+            } else Intent(this, IntroActivity::class.java)
         }
 
         //delay for 3 seconds just to show the splash screen (bouncing ball more :)), Not the ideal way of implementing splash screen but who cares?
         //I know, I could use coroutines delay() but no much difference in this context
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(if (hasSeenIntro == true){
-                Intent(this, ContainerActivity::class.java)
-            } else Intent(this, IntroActivity::class.java))
+            startActivity(activityIntent)
             finish()}, SPLASH_SCREEN_TIME)
 
     }

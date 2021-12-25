@@ -22,8 +22,6 @@ class IntroActivity : AppCompatActivity() {
     //initialize binding variable
     private lateinit var binding: ActivityIntroBinding
 
-    //initialize storageViewModel
-    private val dataStorageViewModel: DataStorageViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
