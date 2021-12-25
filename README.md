@@ -26,7 +26,7 @@
 - Animation using Lottie
 - Hilt 
 - Retrofit
-- Loading SVG Images using Coil Image Loading Library
+- Loading Images (SVG, JPG, PNG) using Coil Image Loading Library
 - Communication with external API (<a href="https://api.football-data.org">https://api.football-data.org</a>)
 
 ## HOW TO USE
