@@ -61,11 +61,15 @@ class TeamsFragment : Fragment() {
         initViews()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
     private fun initViews(){
         setUpSwipeToRefresh()
         setUpAdapter()
         startCollectingValues()
-
     }
 
 

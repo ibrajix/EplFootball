@@ -2,25 +2,33 @@ package com.ibrajix.eplfootball.ui.fragments
 
 import android.os.Bundle
 import android.transition.TransitionInflater
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.ViewCompat
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import coil.load
+import com.blankj.utilcode.util.NetworkUtils
 import com.ibrajix.eplfootball.R
 import com.ibrajix.eplfootball.databinding.FragmentTeamDetailsBinding
-import com.ibrajix.eplfootball.databinding.FragmentTeamsBinding
+import com.ibrajix.eplfootball.network.Resource
+import com.ibrajix.eplfootball.ui.adapters.PlayersAdapter
+import com.ibrajix.eplfootball.ui.viewmodel.PlayersViewModel
 import com.ibrajix.eplfootball.utils.Constants.HEADER_URL
+import com.ibrajix.eplfootball.utils.Utility
 import com.ibrajix.eplfootball.utils.loadSvg
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class TeamDetailsFragment : Fragment() {
 
+    private lateinit var playersAdapter: PlayersAdapter
     private  var _binding: FragmentTeamDetailsBinding? = null
     private val binding get() = _binding!!
     private val args: TeamDetailsFragmentArgs by navArgs()
+    private val playersViewModel: PlayersViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,9 +49,64 @@ class TeamDetailsFragment : Fragment() {
         initView()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
     private fun initView(){
+        startObservingValues()
+        setUpAdapter()
         setViews()
         handleClicks()
+    }
+
+    private fun startObservingValues(){
+
+        //check if network is available
+        if (NetworkUtils.isConnected()){
+            getPlayers()
+        }
+        else{
+            Utility.displaySnackBar(binding.root, getString(R.string.not_connected), requireContext())
+        }
+
+    }
+
+    private fun getPlayers(){
+
+        playersViewModel.doGetPremierLeagueTeams(args.details.id.toString())
+        playersViewModel.premierLeagueTeamPlayers.observe(viewLifecycleOwner){
+            when (it.status) {
+                Resource.Status.SUCCESS -> {
+                    playersAdapter.submitList(it.data?.squad)
+                }
+
+                Resource.Status.LOADING -> {
+                    showError(it.message?:getString(R.string.error_message))
+                }
+
+                Resource.Status.ERROR -> {
+                    showError(it.message?:getString(R.string.error_message))
+                }
+
+                Resource.Status.FAILURE -> {
+                    showError(it.message?:getString(R.string.error_message))
+                }
+            }
+        }
+
+
+    }
+
+    private fun setUpAdapter(){
+
+        playersAdapter = PlayersAdapter(onClickListener = PlayersAdapter.OnPlayersClickListener{
+           //do something when a player is clicked
+        })
+
+        binding.rcvPlayers.adapter = playersAdapter
+
     }
 
     private fun setViews(){
@@ -73,6 +136,7 @@ class TeamDetailsFragment : Fragment() {
 
         binding.txtStadium.text = args.details.venue
 
+
     }
 
     private fun handleClicks(){
@@ -81,6 +145,12 @@ class TeamDetailsFragment : Fragment() {
         binding.icBack.setOnClickListener {
             findNavController().popBackStack()
         }
+
+    }
+
+    private fun showError(error: String){
+        //stop loading, show recycler view and show error
+        Utility.displaySnackBar(binding.root, error, requireContext())
     }
 
 }

@@ -1,11 +1,15 @@
 package com.ibrajix.eplfootball.utils
 
 import android.content.Context
+import android.os.Build
 import android.view.View
 import androidx.annotation.ColorInt
+import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
 import com.ibrajix.eplfootball.R
+import java.time.LocalDate
+import java.time.Period
 
 object Utility {
 
@@ -20,5 +24,19 @@ object Utility {
         this.view.setBackgroundColor(colorInt)
         return this
     }
+
+    //calculate age
+    fun getBirthYearAfterDash(string: String) = string.substring(0, string.indexOf('-'))
+
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun calculateAge(birthDate: LocalDate?, currentDate: LocalDate?): Int {
+        return if (birthDate != null && currentDate != null) {
+            Period.between(birthDate, currentDate).years
+        } else {
+            0
+        }
+    }
+
 
 }

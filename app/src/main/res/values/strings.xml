@@ -6,11 +6,13 @@
     <string name="enter">Enter</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="premiership">Premier League Teams</string>
-    <string name="not_connected">Not connected to the internet, try again by refreshing</string>
+    <string name="not_connected">Not connected to the internet, can\'t get players</string>
     <string name="error_message">Something went wrong, try again</string>
     <string name="phone">Phone:</string>
     <string name="details">Details:</string>
     <string name="website">Website:</string>
     <string name="email">Email:</string>
     <string name="stadium">Stadium:</string>
+    <string name="players">Players</string>
+    <string name="age_years">%1$s years old</string>
 </resources>

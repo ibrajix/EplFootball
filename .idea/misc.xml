@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/drawable-v24/lyt_rounded_2.xml" value="0.24635416666666668" />
         <entry key="app/src/main/res/drawable/btn_background.xml" value="0.2604166666666667" />
+        <entry key="app/src/main/res/drawable/ic_player.xml" value="0.24635416666666668" />
         <entry key="app/src/main/res/drawable/lyt_rounded.xml" value="0.24722222222222223" />
         <entry key="app/src/main/res/drawable/lyt_rounded_2.xml" value="0.24635416666666668" />
         <entry key="app/src/main/res/drawable/rcv_layout_players.xml" value="0.24635416666666668" />
@@ -12,8 +13,9 @@
         <entry key="app/src/main/res/layout/activity_intro.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.21794871794871795" />
         <entry key="app/src/main/res/layout/fragment_clubs.xml" value="0.24583333333333332" />
-        <entry key="app/src/main/res/layout/fragment_team_details.xml" value="0.125" />
+        <entry key="app/src/main/res/layout/fragment_team_details.xml" value="0.11" />
         <entry key="app/src/main/res/layout/fragment_teams.xml" value="0.14166666666666666" />
+        <entry key="app/src/main/res/layout/rcv_lyt_players.xml" value="0.25" />
         <entry key="app/src/main/res/layout/rcv_lyt_premeir_league.xml" value="0.2609375" />
         <entry key="app/src/main/res/layout/rcv_lyt_premier_league_teams.xml" value="0.24444444444444444" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.225" />
