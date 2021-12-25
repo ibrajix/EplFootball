@@ -81,7 +81,6 @@ class TeamDetailsFragment : Fragment() {
         binding.icBack.setOnClickListener {
             findNavController().popBackStack()
         }
-
     }
 
 }

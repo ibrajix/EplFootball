@@ -7,11 +7,22 @@
     android:fillViewport="true"
     tools:context=".ui.fragments.TeamDetailsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/header"
+            android:layout_width="wrap_content"
+            android:layout_height="260dp"
+            android:contentDescription="@string/image"
+            android:fitsSystemWindows="false"
+            android:scaleType="centerCrop"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.CardView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/ic_back"
@@ -21,21 +32,11 @@
             android:paddingTop="12dp"
             android:paddingEnd="6dp"
             android:contentDescription="@string/image"
-            android:translationZ="100dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/header" android:src="@drawable/ic_back_round"/>
+            app:layout_constraintTop_toTopOf="@id/header"
+            android:src="@drawable/ic_back_round" />
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/header"
-            android:layout_width="0dp"
-            android:layout_height="260dp"
-            android:contentDescription="@string/image"
-            android:elevation="9dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <!--ImageView
+        <ImageView
             android:id="@+id/img_club"
             android:contentDescription="@string/image"
             android:layout_width="100dp"
@@ -45,14 +46,13 @@
             app:layout_constraintBottom_toBottomOf="@+id/header"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/header" />-->
+            app:layout_constraintTop_toBottomOf="@+id/header" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/lyt_rounded"
-            android:translationZ="100dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -126,7 +126,6 @@
 
             </androidx.cardview.widget.CardView>
 
-
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView2"
                 android:layout_width="100dp"
@@ -172,9 +171,9 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginTop="20dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="30dp"
                 android:background="@drawable/lyt_rounded_2"
                 android:padding="20dp"
@@ -190,7 +189,7 @@
                     android:layout_marginTop="4dp"
                     android:fontFamily="@font/avenir_black"
                     android:text="@string/details"
-                    android:textColor="@color/black"
+                    android:textColor="@color/colorPrimary"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -222,7 +221,7 @@
                     android:id="@+id/textView5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="12dp"
                     android:text="@string/website"
                     app:layout_constraintStart_toStartOf="@+id/txt_phone_number"
                     app:layout_constraintTop_toBottomOf="@+id/txt_phone_number" />
@@ -242,7 +241,7 @@
                     android:id="@+id/textView6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="12dp"
                     android:text="@string/email"
                     app:layout_constraintStart_toStartOf="@+id/txt_website"
                     app:layout_constraintTop_toBottomOf="@+id/txt_website" />
@@ -262,7 +261,7 @@
                     android:id="@+id/textView7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="12dp"
                     android:text="@string/stadium"
                     app:layout_constraintStart_toStartOf="@+id/txt_email"
                     app:layout_constraintTop_toBottomOf="@+id/txt_email" />
@@ -278,22 +277,34 @@
                     app:layout_constraintStart_toStartOf="@+id/textView7"
                     app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
-
             </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:id="@+id/img_club"
-            android:contentDescription="@string/image"
-            android:src="@drawable/ic_back_round"
-            android:translationZ="400dp"
-            app:layout_constraintBottom_toBottomOf="@+id/header"
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/avenir_black"
+            android:text="Players"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcv_players"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/header" />
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/textView8"
+            app:layout_constraintTop_toBottomOf="@+id/textView8"
+            app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

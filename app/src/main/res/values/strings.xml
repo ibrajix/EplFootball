@@ -4,14 +4,13 @@
     <string name="english_premier_league">English Premier League</string>
     <string name="explore_epl_teams">Explore every epl team and their players with this app</string>
     <string name="enter">Enter</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="premiership">Premier League Teams</string>
     <string name="not_connected">Not connected to the internet, try again by refreshing</string>
     <string name="error_message">Something went wrong, try again</string>
     <string name="phone">Phone:</string>
-    <string name="details">Details</string>
-    <string name="website">Website</string>
-    <string name="email">Email</string>
-    <string name="stadium">Stadium</string>
+    <string name="details">Details:</string>
+    <string name="website">Website:</string>
+    <string name="email">Email:</string>
+    <string name="stadium">Stadium:</string>
 </resources>
